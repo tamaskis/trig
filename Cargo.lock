@@ -27,7 +27,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "todo-crate-name"
+name = "trig"
 version = "0.1.0"
 dependencies = [
  "numtest",
