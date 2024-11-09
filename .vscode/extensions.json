@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "rust-lang.rust-analyzer",      // Rust language support.
+        "tamasfe.even-better-toml",     // TOML syntax highlighting.
+        "github.vscode-github-actions", // GitHub CI/CD.
+    ],
+}

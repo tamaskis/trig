@@ -1,0 +1,51 @@
+name: Pull request CI
+
+on:
+  pull_request:
+    branches: [ "main" ]  # Run on pull requests to main.
+    types:
+      - opened  # Default trigger that we need to manually reset.
+      - reopened  # Default trigger that we need to manually reset.
+      - synchronize # Default trigger that we need to manually reset.
+      - ready_for_review  # Trigger CI when pull request is marked as ready.
+
+env:
+  CARGO_TERM_COLOR: always  # Color cargo commands and output.
+  RUSTFLAGS: "-Dwarnings"   # Make CI fail on Clippy lint warnings.
+
+jobs:
+        
+  test_lint_docs_publish:
+    name: Test, lint, docs, and publishing dry run
+    # Only run if the pull request is marked as ready.
+    if: ${{ !github.event.pull_request.draft }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout  # Checkout this repo's code.
+        uses: actions/checkout@v4
+      - name: Install # Install stable toolchain.
+        run: rustup update stable && rustup default stable
+      - name: Test  # Test using dependencies from committed lock file.
+        run: set RUST_BACKTRACE=1; cargo test --locked --all-features --verbose
+      - name: Lint  # Lint using Clippy.
+        run: cargo clippy --no-deps --all-features
+      - name: Docs  # Ensure that docs can be generated for this crate.
+        run: cargo doc --no-deps
+      - name: Publishing dry run  # Ensure that this crate can be published.
+        run: |
+          # Run cargo publish --dry-run and capture output.
+          DRY_RUN_OUTPUT=$(cargo publish --dry-run 2>&1)
+
+          # Print out full dry run output.
+          echo "$DRY_RUN_OUTPUT"
+
+          # Filter out the final warning printed for all dry runs.
+          FILTERED_OUTPUT=$(echo "$DRY_RUN_OUTPUT" | grep -v "aborting upload due to dry run" \
+            || true)
+
+          # Check if filtered output contains any other warnings and raise an error if it does.
+          if echo "$FILTERED_OUTPUT" | grep -q "warning"; then
+            echo "Warning(s) (in addition to 'aborting upload due to dry run') found in cargo "\
+              "publish --dry-run output"
+            exit 1  # Exit with non-zero status to fail the job
+          fi

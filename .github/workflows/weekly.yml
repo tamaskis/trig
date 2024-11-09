@@ -1,0 +1,27 @@
+name: Weekly CI
+
+on:
+  schedule:
+    - cron: '0 0 * * 6'   # Run at 00:00 every Saturday (UTC).
+
+env:
+  CARGO_TERM_COLOR: always  # Color cargo commands and output.
+
+jobs:
+
+  test_latest_and_minimal:
+    name: Test latest and minimal
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout  # Checkout this repo's code.
+        uses: actions/checkout@v4
+      - name: Install # Install nightly toolchain.
+        run: rustup update nightly && rustup default nightly
+      - name: Lock latest # Generate new lock file using latest versions of dependencies.
+        run: cargo generate-lockfile
+      - name: Test latest # Test using latest dependencies.
+        run: set RUST_BACKTRACE=1; cargo test --locked --all-features --verbose
+      - name: Lock minimal  # Generate new lock file using minimum allowed versions of dependencies.
+        run: cargo generate-lockfile -Z minimal-versions
+      - name: Check minimal  # Check compilation using minimal dependencies.
+        run: cargo check --locked

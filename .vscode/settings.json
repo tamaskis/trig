@@ -1,0 +1,11 @@
+{
+    // General settings (https://doc.rust-lang.org/nightly/style-guide/).
+    "editor.tabSize": 4,
+    "editor.rulers": [100],
+    // Autoformatting.
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer",
+        "editor.formatOnSave": true,
+    },
+    "rust-analyzer.check.command": "clippy"
+}
