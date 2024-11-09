@@ -4,13 +4,49 @@
 //! [crates-io]: https://img.shields.io/badge/crates.io-fc8d62?style=for-the-badge&labelColor=555555&logo=rust
 //! [docs-rs]: https://img.shields.io/badge/docs.rs-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs
 //!
-//! Additional trigonometric functions in Rust.
+//! Complete set of trigonometric functions in Rust.
+//!
+//! # Summary
+//!
+//! This crate defines the [`Trig`] trait defining the complete set of trigonometric functions. Rust already provides the following trigonometric functions for [`f32`]s and [`f64`]s:
+//!
+//! * `sin`
+//! * `cos`
+//! * `tan`
+//! * `asin`
+//! * `acos`
+//! * `atan`
+//! * `atan2`
+//!
+//! The [`Trig`] trait also includes these functions, but also defines the following additional trigonometric functions:
+//!
+//! * `csc`
+//! * `sec`
+//! * `cot`
+//! * `acsc`
+//! * `asec`
+//! * `acot`
+//!
+//! This crate currently implements the [`Trig`] trait for [`f32`]s and [`f64`]s.
+//!
+//! # Example
+//!
+//! ```
+//! use trig::Trig;
+//!
+//! let x = std::f64::consts::FRAC_PI_2;
+//! let abs_difference = (x.csc() - 1.0).abs();
+//!
+//! assert!(abs_difference < 1e-16);
+//! ```
 
 // Linter setup.
 #![warn(missing_docs)]
 
 // Linking project modules.
-pub(crate) mod module;
+pub(crate) mod f32_impl;
+pub(crate) mod f64_impl;
+pub(crate) mod trig_trait;
 
 // Re-exports.
-pub use crate::module::example_function;
+pub use crate::trig_trait::Trig;
