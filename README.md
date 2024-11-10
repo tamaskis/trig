@@ -4,7 +4,7 @@
 [<img alt="crates.io" src="https://img.shields.io/crates/v/trig.svg?style=for-the-badge&color=fc8d62&logo=rust" height="20">](https://crates.io/crates/trig)
 [<img alt="docs.rs" src="https://img.shields.io/badge/docs.rs-trig-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs" height="20">](https://docs.rs/trig)
 
-Additional trigonometric functions in Rust.
+Complete set of trigonometric functions in Rust.
 
 ## Documentation
 
@@ -12,10 +12,13 @@ Please see https://docs.rs/trig.
 
 ## Examples
 
-TODO Simple examples demonstrating the functionality of the package can be included here.
-
 ```rust
-// TODO
+use trig::Trig;
+
+let x = std::f64::consts::FRAC_PI_2;
+let abs_difference = (x.csc() - 1.0).abs();
+
+assert!(abs_difference < 1e-16);
 ```
 
 #### License
