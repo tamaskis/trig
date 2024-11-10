@@ -1,6 +1,6 @@
 [package]
 name = "trig"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Tamas Kis"]
 edition = "2021"
 description = "Complete set of trigonometric and hyperbolic functions in Rust."
