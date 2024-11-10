@@ -220,10 +220,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = std::f64::consts::FRAC_PI_2;
-    ///
-    /// // asin(sin(pi/2))
-    /// let abs_difference = (f.sin().asin() - f).abs();
+    /// let x = std::f64::consts::FRAC_PI_2;
+    /// let f = x.sin().asin();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -256,10 +255,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = std::f64::consts::FRAC_PI_4;
-    ///
-    /// // acos(cos(pi/4))
-    /// let abs_difference = (f.cos().acos() - f).abs();
+    /// let x = std::f64::consts::FRAC_PI_4;
+    /// let f = x.cos().acos();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -288,10 +286,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = 1.0_f64;
-    ///
-    /// // atan(tan(1))
-    /// let abs_difference = (f.tan().atan() - f).abs();
+    /// let x = 1.0_f64;
+    /// let f = x.tan().atan();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -324,10 +321,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = std::f64::consts::FRAC_PI_2;
-    ///
-    /// // acsc(csc(pi/2))
-    /// let abs_difference = (f.csc().acsc() - f).abs();
+    /// let x = std::f64::consts::FRAC_PI_2;
+    /// let f = x.csc().acsc();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -360,10 +356,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = std::f64::consts::FRAC_PI_4;
-    ///
-    /// // asec(sec(pi/4))
-    /// let abs_difference = (f.sec().asec() - f).abs();
+    /// let x = std::f64::consts::FRAC_PI_4;
+    /// let f = x.sec().asec();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -392,10 +387,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = 1.0_f64;
-    ///
-    /// // acot(cot(1))
-    /// let abs_difference = (f.cot().acot() - f).abs();
+    /// let x = 1.0_f64;
+    /// let f = x.cot().acot();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -661,10 +655,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = 90.0_f64;
-    ///
-    /// // asind(sind(90))
-    /// let abs_difference = (f.sind().asind() - f).abs();
+    /// let x = 90.0_f64;
+    /// let f = x.sind().asind();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -697,10 +690,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = 45.0_f64;
-    ///
-    /// // acosd(cosd(45))
-    /// let abs_difference = (f.cosd().acosd() - f).abs();
+    /// let x = 45.0_f64;
+    /// let f = x.cosd().acosd();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -729,10 +721,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = 30.0_f64;
-    ///
-    /// // atand(tand(30))
-    /// let abs_difference = (f.tand().atand() - f).abs();
+    /// let x = 30.0_f64;
+    /// let f = x.tand().atand();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-14);
     /// ```
@@ -765,10 +756,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = 90.0_f64;
-    ///
-    /// // acscd(cscd(90))
-    /// let abs_difference = (f.cscd().acscd() - f).abs();
+    /// let x = 90.0_f64;
+    /// let f = x.cscd().acscd();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -801,10 +791,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = 45.0_f64;
-    ///
-    /// // asecd(secd(45))
-    /// let abs_difference = (f.secd().asecd() - f).abs();
+    /// let x = 45.0_f64;
+    /// let f = x.secd().asecd();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -833,10 +822,9 @@ pub trait Trig {
     /// ```
     /// use trig::Trig;
     ///
-    /// let f = 30.0_f64;
-    ///
-    /// // acotd(cotd(30))
-    /// let abs_difference = (f.cotd().acotd() - f).abs();
+    /// let x = 30.0_f64;
+    /// let f = x.cotd().acotd();
+    /// let abs_difference = (f - x).abs();
     ///
     /// assert!(abs_difference < 1e-14);
     /// ```
@@ -845,4 +833,429 @@ pub trait Trig {
     ///
     /// * [https://mathworld.wolfram.com/InverseCotangent.html](https://mathworld.wolfram.com/InverseCotangent.html)
     fn acotd(&self) -> Self;
+
+    /// Computes the hyperbolic sine of this value.
+    ///
+    /// # Returns
+    ///
+    /// Hyperbolic sine of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.0_f64;
+    ///
+    /// let f = x.sinh();
+    /// let g = ((E * E) - 1.0) / (2.0 * E);
+    /// let abs_difference = (f - g).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/HyperbolicSine.html](https://mathworld.wolfram.com/HyperbolicSine.html)
+    fn sinh(&self) -> Self;
+
+    /// Computes the hyperbolic cosine of this value.
+    ///
+    /// # Returns
+    ///
+    /// Hyperbolic cosine of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $[1,\infty)$
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.0_f64;
+    ///
+    /// let f = x.cosh();
+    /// let g = ((E * E) + 1.0) / (2.0 * E);
+    /// let abs_difference = (f - g).abs();
+    ///
+    /// assert!(abs_difference < 1e-15);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/HyperbolicCosine.html](https://mathworld.wolfram.com/HyperbolicCosine.html)
+    fn cosh(&self) -> Self;
+
+    /// Computes the hyperbolic tangent of this value.
+    ///
+    /// # Returns
+    ///
+    /// Hyperbolic tangent of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $(-1,1)$
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.0_f64;
+    ///
+    /// let f = x.tanh();
+    /// let g = (1.0 - E.powi(-2)) / (1.0 + E.powi(-2));
+    /// let abs_difference = (f - g).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/HyperbolicTangent.html](https://mathworld.wolfram.com/HyperbolicTangent.html)
+    fn tanh(&self) -> Self;
+
+    /// Computes the hyperbolic cosecant of this value.
+    ///
+    /// # Returns
+    ///
+    /// Hyperbolic cosecant of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,0)\cup(0,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $(-\infty,0)\cup(0,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the hyperbolic cosecant function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.0_f64;
+    ///
+    /// let f = x.csch();
+    /// let g = (2.0 * E) / ((E * E) - 1.0);
+    /// let abs_difference = (f - g).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/HyperbolicCosecant.html](https://mathworld.wolfram.com/HyperbolicCosecant.html)
+    fn csch(&self) -> Self;
+
+    /// Computes the hyperbolic secant of this value.
+    ///
+    /// # Returns
+    ///
+    /// Hyperbolic secant of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $(0,1]$
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.0_f64;
+    ///
+    /// let f = x.sech();
+    /// let g = (2.0 * E) / ((E * E) + 1.0);
+    /// let abs_difference = (f - g).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/HyperbolicSecant.html](https://mathworld.wolfram.com/HyperbolicSecant.html)
+    fn sech(&self) -> Self;
+
+    /// Computes the hyperbolic cotangent of this value.
+    ///
+    /// # Returns
+    ///
+    /// Hyperbolic cotangent of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,0)\cup(0,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $(-\infty,-1)\cup(1,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the hyperbolic cotangent function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.0_f64;
+    ///
+    /// let f = x.coth();
+    /// let g = (1.0 + E.powi(-2)) / (1.0 - E.powi(-2));
+    /// let abs_difference = (f - g).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/HyperbolicCotangent.html](https://mathworld.wolfram.com/HyperbolicCotangent.html)
+    fn coth(&self) -> Self;
+
+    /// Computes the inverse hyperbolic sine of this value.
+    ///
+    /// # Returns
+    ///
+    /// Inverse hyperbolic sine of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.0_f64;
+    /// let f = x.sinh().asinh();
+    /// let abs_difference = (f - x).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseHyperbolicSine.html](https://mathworld.wolfram.com/InverseHyperbolicSine.html)
+    fn asinh(&self) -> Self;
+
+    /// Computes the inverse hyperbolic cosine of this value.
+    ///
+    /// # Returns
+    ///
+    /// Inverse hyperbolic cosine of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(1,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $[0,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the inverse hyperbolic cosine function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.0_f64;
+    /// let f = x.cosh().acosh();
+    /// let abs_difference = (f - x).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseHyperbolicCosine.html](https://mathworld.wolfram.com/InverseHyperbolicCosine.html)
+    fn acosh(&self) -> Self;
+
+    /// Computes the inverse hyperbolic tangent of this value.
+    ///
+    /// # Returns
+    ///
+    /// Inverse hyperbolic tangent of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-1,1)$
+    ///
+    /// # Range
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the inverse hyperbolic tangent function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.0_f64;
+    /// let f = x.tanh().atanh();
+    /// let abs_difference = (f - x).abs();
+    ///
+    /// assert!(abs_difference < 1e-15);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseHyperbolicTangent.html](https://mathworld.wolfram.com/InverseHyperbolicTangent.html)
+    fn atanh(&self) -> Self;
+
+    /// Computes the inverse hyperbolic cosecant of this value.
+    ///
+    /// # Returns
+    ///
+    /// Inverse hyperbolic cosecant of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(\infty,0)\cup(0,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $(\infty,0)\cup(0,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the inverse hyperbolic cosecant function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.0_f64;
+    /// let f = x.csch().acsch();
+    /// let abs_difference = (f - x).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseHyperbolicCosecant.html](https://mathworld.wolfram.com/InverseHyperbolicCosecant.html)
+    fn acsch(&self) -> Self;
+
+    /// Computes the inverse hyperbolic secant of this value.
+    ///
+    /// # Returns
+    ///
+    /// Inverse hyperbolic secant of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(0,1]$
+    ///
+    /// # Range
+    ///
+    /// $[0,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the inverse hyperbolic secant function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 0.5_f64;
+    /// let f = x.sech().asech();
+    /// let abs_difference = (f - x).abs();
+    ///
+    /// assert!(abs_difference < 1e-15);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseHyperbolicSecant.html](https://mathworld.wolfram.com/InverseHyperbolicSecant.html)
+    fn asech(&self) -> Self;
+
+    /// Computes the inverse hyperbolic cotangent of this value.
+    ///
+    /// # Returns
+    ///
+    /// Inverse hyperbolic cotangent of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,-1)\cup(1,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $(-\infty,0)\cup(0,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the inverse hyperbolic cotangent function at points outside its domain is
+    /// `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use std::f64::consts::E;
+    /// use trig::Trig;
+    ///
+    /// let x = 1.5_f64;
+    /// let f = x.coth().acoth();
+    /// let abs_difference = (f - x).abs();
+    ///
+    /// assert!(abs_difference < 1e-15);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseHyperbolicCotangent.html](https://mathworld.wolfram.com/InverseHyperbolicCotangent.html)
+    fn acoth(&self) -> Self;
 }

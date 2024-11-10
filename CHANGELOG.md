@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+1. Added hyperbolic and inverse hyperbolic functions.
+
 ## 0.1.1
 
 1. Added `deg2rad` and `rad2deg` methods to `Trig` trait.
