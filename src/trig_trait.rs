@@ -298,6 +298,68 @@ pub trait Trig {
     /// * [https://mathworld.wolfram.com/InverseTangent.html](https://mathworld.wolfram.com/InverseTangent.html)
     fn atan(&self) -> Self;
 
+    /// Computes the four-quadrant inverse tangent of `self` (`y`) and `other` (`x`), returning the
+    /// result in radians.
+    ///
+    /// The four-quadrant inverse tangent computes the angle, measured counterclockwise, between the
+    /// $+x$-axis and the ray from the origin to the point $(x,y)$.
+    ///
+    /// # Arguments
+    ///
+    /// * `other` - Other value (`x`) for computing the four-quadrant inverse with `self` (`y`).
+    ///
+    /// # Returns
+    ///
+    /// Four-quadrant inverse tangent of `self` (`y`) and `other` (`x`) \[rad\].
+    ///
+    /// # Domain
+    ///
+    /// * `self` (`y`): $(-\infty,\infty)$
+    /// * `other` (`x`): $(-\infty,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $[-\pi,\pi]$ _radians_
+    ///
+    /// # Warning
+    ///
+    /// In the examples below, we pass `x` to `atan2` by value instead of as the reference `&x`.
+    /// This is because the standard [`f32::atan2`] and [`f64::atan2`] method will be used for
+    /// [`f32`]s and [`f64`]s, respectively, instead of the [`Trig::atan2`] method.
+    ///
+    /// # Examples
+    ///
+    /// ## 45 degrees clockwise
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = 3.0_f64;
+    /// let y = -3.0_f64;
+    /// let angle_expected = -std::f64::consts::FRAC_PI_4;
+    /// let abs_difference = (y.atan2(x) - angle_expected).abs();
+    ///
+    /// assert!(abs_difference < 1.0e-16);
+    /// ```
+    ///
+    /// ## 135 degrees counterclockwise
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = -3.0_f64;
+    /// let y = 3.0_f64;
+    /// let angle_expected = 3.0 * std::f64::consts::FRAC_PI_4;
+    /// let abs_difference = (y.atan2(x) - angle_expected).abs();
+    ///
+    /// assert!(abs_difference < 1.0e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://en.wikipedia.org/wiki/Atan2](https://en.wikipedia.org/wiki/Atan2)
+    fn atan2(&self, other: &Self) -> Self;
+
     /// Computes the inverse cosecant of this value, returning the result in radians.
     ///
     /// # Returns
@@ -732,6 +794,62 @@ pub trait Trig {
     ///
     /// * [https://mathworld.wolfram.com/InverseTangent.html](https://mathworld.wolfram.com/InverseTangent.html)
     fn atand(&self) -> Self;
+
+    /// Computes the four-quadrant inverse tangent of `self` (`y`) and `other` (`x`), returning the
+    /// result in degrees.
+    ///
+    /// The four-quadrant inverse tangent computes the angle, measured counterclockwise, between the
+    /// $+x$-axis and the ray from the origin to the point $(x,y)$.
+    ///
+    /// # Arguments
+    ///
+    /// * `other` - Other value (`x`) for computing the four-quadrant inverse with `self` (`y`).
+    ///
+    /// # Returns
+    ///
+    /// Four-quadrant inverse tangent of `self` (`y`) and `other` (`x`) \[deg\].
+    ///
+    /// # Domain
+    ///
+    /// * `self` (`y`): $(-\infty,\infty)$
+    /// * `other` (`x`): $(-\infty,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $[-180,180]$ _degrees_
+    ///
+    /// # Examples
+    ///
+    /// ## 45 degrees clockwise
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = 3.0_f64;
+    /// let y = -3.0_f64;
+    /// let angle_expected = -45.0_f64;
+    /// let abs_difference = (y.atan2d(&x) - angle_expected).abs();
+    ///
+    /// assert!(abs_difference < 1.0e-16);
+    /// ```
+    ///
+    /// ## 135 degrees counterclockwise
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = -3.0_f64;
+    /// let y = 3.0_f64;
+    /// let angle_expected = 135.0_f64;
+    /// let abs_difference = (y.atan2d(&x) - angle_expected).abs();
+    ///
+    /// assert!(abs_difference < 1.0e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://en.wikipedia.org/wiki/Atan2](https://en.wikipedia.org/wiki/Atan2)
+    fn atan2d(&self, other: &Self) -> Self;
 
     /// Computes the inverse cosecant of this value, returning the result in degrees.
     ///
