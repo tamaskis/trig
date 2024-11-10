@@ -28,6 +28,9 @@ impl Trig for f32 {
     fn atan(&self) -> f32 {
         f32::atan(*self)
     }
+    fn atan2(&self, other: &f32) -> f32 {
+        f32::atan2(*self, *other)
+    }
     fn acsc(&self) -> f32 {
         (1.0 / self).asin()
     }
@@ -69,6 +72,9 @@ impl Trig for f32 {
     }
     fn atand(&self) -> f32 {
         self.atan().rad2deg()
+    }
+    fn atan2d(&self, other: &f32) -> f32 {
+        self.atan2(other).rad2deg()
     }
     fn acscd(&self) -> f32 {
         self.acsc().rad2deg()
@@ -176,6 +182,22 @@ mod test {
     }
 
     #[test]
+    fn test_atan2_45_deg_clockwise() {
+        let x = 3.0_f32;
+        let y = -3.0_f32;
+        let angle_expected = -std::f32::consts::FRAC_PI_4;
+        assert_eq!(y.atan2(x), angle_expected);
+    }
+
+    #[test]
+    fn test_atan2_135_deg_counterclockwise() {
+        let x = -3.0_f32;
+        let y = 3.0_f32;
+        let angle_expected = 3.0 * std::f32::consts::FRAC_PI_4;
+        assert_eq!(y.atan2(x), angle_expected);
+    }
+
+    #[test]
     fn test_acsc() {
         assert_equal_to_atol!(
             std::f32::consts::FRAC_PI_2.csc().acsc(),
@@ -250,6 +272,22 @@ mod test {
     #[test]
     fn test_atand() {
         assert_eq!(30.0_f32.tand().atand(), 30.0_f32);
+    }
+
+    #[test]
+    fn test_atan2d_45_deg_clockwise() {
+        let x = 3.0_f32;
+        let y = -3.0_f32;
+        let angle_expected = -45.0_f32;
+        assert_eq!(y.atan2d(&x), angle_expected);
+    }
+
+    #[test]
+    fn test_atan2d_135_deg_counterclockwise() {
+        let x = -3.0_f32;
+        let y = 3.0_f32;
+        let angle_expected = 135.0_f32;
+        assert_eq!(y.atan2d(&x), angle_expected);
     }
 
     #[test]

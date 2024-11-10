@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3
+
+1. Added four-quadrant inverse tangent functions (in radians and degrees).
+
 ## 0.1.2
 
 1. Added hyperbolic and inverse hyperbolic functions.

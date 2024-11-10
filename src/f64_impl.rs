@@ -28,6 +28,9 @@ impl Trig for f64 {
     fn atan(&self) -> f64 {
         f64::atan(*self)
     }
+    fn atan2(&self, other: &f64) -> f64 {
+        f64::atan2(*self, *other)
+    }
     fn acsc(&self) -> f64 {
         (1.0 / self).asin()
     }
@@ -69,6 +72,9 @@ impl Trig for f64 {
     }
     fn atand(&self) -> f64 {
         self.atan().rad2deg()
+    }
+    fn atan2d(&self, other: &f64) -> f64 {
+        self.atan2(other).rad2deg()
     }
     fn acscd(&self) -> f64 {
         self.acsc().rad2deg()
@@ -175,6 +181,22 @@ mod test {
     }
 
     #[test]
+    fn test_atan2_45_deg_clockwise() {
+        let x = 3.0_f64;
+        let y = -3.0_f64;
+        let angle_expected = -std::f64::consts::FRAC_PI_4;
+        assert_eq!(y.atan2(x), angle_expected);
+    }
+
+    #[test]
+    fn test_atan2_135_deg_counterclockwise() {
+        let x = -3.0_f64;
+        let y = 3.0_f64;
+        let angle_expected = 3.0 * std::f64::consts::FRAC_PI_4;
+        assert_eq!(y.atan2(x), angle_expected);
+    }
+
+    #[test]
     fn test_acsc() {
         assert_eq!(
             std::f64::consts::FRAC_PI_2.csc().acsc(),
@@ -248,6 +270,22 @@ mod test {
     #[test]
     fn test_atand() {
         assert_equal_to_atol!(30.0_f64.tand().atand(), 30.0_f64, 1e-14);
+    }
+
+    #[test]
+    fn test_atan2d_45_deg_clockwise() {
+        let x = 3.0_f64;
+        let y = -3.0_f64;
+        let angle_expected = -45.0_f64;
+        assert_eq!(y.atan2d(&x), angle_expected);
+    }
+
+    #[test]
+    fn test_atan2d_135_deg_counterclockwise() {
+        let x = -3.0_f64;
+        let y = 3.0_f64;
+        let angle_expected = 135.0_f64;
+        assert_eq!(y.atan2d(&x), angle_expected);
     }
 
     #[test]
