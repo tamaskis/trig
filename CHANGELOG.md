@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+1. Added `deg2rad` and `rad2deg` methods to `Trig` trait.
+1. Added versions of all trigonometric functions in degrees (e.g. `sind`, `asind`) to the `Trig` trait.
+
 ## 0.1.0
 
 1. Initial implementation of the `Trig` trait for `f32`s and `f64`s.

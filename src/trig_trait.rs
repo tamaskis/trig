@@ -223,7 +223,7 @@ pub trait Trig {
     /// let f = std::f64::consts::FRAC_PI_2;
     ///
     /// // asin(sin(pi/2))
-    /// let abs_difference = (f.sin().asin() - std::f64::consts::FRAC_PI_2).abs();
+    /// let abs_difference = (f.sin().asin() - f).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -259,9 +259,9 @@ pub trait Trig {
     /// let f = std::f64::consts::FRAC_PI_4;
     ///
     /// // acos(cos(pi/4))
-    /// let abs_difference = (f.cos().acos() - std::f64::consts::FRAC_PI_4).abs();
+    /// let abs_difference = (f.cos().acos() - f).abs();
     ///
-    /// assert!(abs_difference < 1e-10);
+    /// assert!(abs_difference < 1e-16);
     /// ```
     ///
     /// # References
@@ -291,9 +291,9 @@ pub trait Trig {
     /// let f = 1.0_f64;
     ///
     /// // atan(tan(1))
-    /// let abs_difference = (f.tan().atan() - 1.0).abs();
+    /// let abs_difference = (f.tan().atan() - f).abs();
     ///
-    /// assert!(abs_difference < 1e-10);
+    /// assert!(abs_difference < 1e-16);
     /// ```
     ///
     /// # References
@@ -327,7 +327,7 @@ pub trait Trig {
     /// let f = std::f64::consts::FRAC_PI_2;
     ///
     /// // acsc(csc(pi/2))
-    /// let abs_difference = (f.csc().acsc() - std::f64::consts::FRAC_PI_2).abs();
+    /// let abs_difference = (f.csc().acsc() - f).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -363,9 +363,8 @@ pub trait Trig {
     /// let f = std::f64::consts::FRAC_PI_4;
     ///
     /// // asec(sec(pi/4))
-    /// let abs_difference = (f.sec().asec() - std::f64::consts::FRAC_PI_4).abs();
+    /// let abs_difference = (f.sec().asec() - f).abs();
     ///
-    /// println!("{}", abs_difference);
     /// assert!(abs_difference < 1e-16);
     /// ```
     ///
@@ -396,7 +395,7 @@ pub trait Trig {
     /// let f = 1.0_f64;
     ///
     /// // acot(cot(1))
-    /// let abs_difference = (f.cot().acot() - 1.0).abs();
+    /// let abs_difference = (f.cot().acot() - f).abs();
     ///
     /// assert!(abs_difference < 1e-16);
     /// ```
@@ -405,4 +404,445 @@ pub trait Trig {
     ///
     /// * [https://mathworld.wolfram.com/InverseCotangent.html](https://mathworld.wolfram.com/InverseCotangent.html)
     fn acot(&self) -> Self;
+
+    /// Convert this value from degrees to radians.
+    ///
+    /// # Returns
+    ///
+    /// This value (originally in degrees) in radians.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = 30.0_f64;
+    /// let abs_difference = (x.deg2rad() - std::f64::consts::FRAC_PI_6).abs();
+    ///
+    /// assert!(abs_difference < 1e-15);
+    /// ```
+    fn deg2rad(&self) -> Self;
+
+    /// Convert this value from radians to degrees.
+    ///
+    /// # Returns
+    ///
+    /// This value (originally in radians) in degrees.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = std::f64::consts::FRAC_PI_6;
+    /// let abs_difference = (x.rad2deg() - 30.0).abs();
+    ///
+    /// assert!(abs_difference < 1e-14);
+    /// ```
+    fn rad2deg(&self) -> Self;
+
+    /// Computes the sine of this value, where this value is in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Sine of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,\infty)$ _degrees_
+    ///
+    /// # Range
+    ///
+    /// $[-1,1]$
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = 90.0_f64;
+    /// let abs_difference = (x.sind() - 1.0).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/Sine.html](https://mathworld.wolfram.com/Sine.html)
+    fn sind(&self) -> Self;
+
+    /// Computes the cosine of this value, where this value is in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Cosine of this value.
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,\infty)$ _degrees_
+    ///
+    /// # Range
+    ///
+    /// $[-1,1]$
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = 360.0_f64;
+    /// let abs_difference = (x.cosd() - 1.0).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/Cosine.html](https://mathworld.wolfram.com/Cosine.html)
+    fn cosd(&self) -> Self;
+
+    /// Computes the tangent of this value, where this value is in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Tangent of this value.
+    ///
+    /// # Domain
+    ///
+    /// $\mathbb{R}\\;\setminus\\;\left\\{90+180n\mid n\in\mathbb{Z}\right\\}$ _degrees_
+    ///
+    /// # Range
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the tangent function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = 45.0_f64;
+    /// let abs_difference = (x.tand() - 1.0).abs();
+    ///
+    /// assert!(abs_difference < 1e-15);
+    /// ```
+    ///
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/Tangent.html](https://mathworld.wolfram.com/Tangent.html)
+    fn tand(&self) -> Self;
+
+    /// Computes the cosecant of this value, where this value is in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Cosecant of this value.
+    ///
+    /// # Domain
+    ///
+    /// $\mathbb{R}\\;\setminus\\;\left\\{180n\mid n\in\mathbb{Z}\right\\}$ _degrees_
+    ///
+    /// # Range
+    ///
+    /// $(-\infty,-1]\cup[1,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the cosecant function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = 90.0_f64;
+    /// let abs_difference = (x.cscd() - 1.0).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/Cosecant.html](https://mathworld.wolfram.com/Cosecant.html)
+    fn cscd(&self) -> Self;
+
+    /// Computes the secant of this value, where this value is in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Secant of this value.
+    ///
+    /// # Domain
+    ///
+    /// $\mathbb{R}\\;\setminus\\;\left\\{90+180n\mid n\in\mathbb{Z}\right\\}$ _degrees_
+    ///
+    /// # Range
+    ///
+    /// $(-\infty,-1]\cup[1,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the secant function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = 180.0_f64;
+    /// let abs_difference = (x.secd() + 1.0).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/Secant.html](https://mathworld.wolfram.com/Secant.html)
+    fn secd(&self) -> Self;
+
+    /// Computes the cotangent of this value, where this value is in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Cotangent of this value.
+    ///
+    /// # Domain
+    ///
+    /// $\mathbb{R}\\;\setminus\\;\left\\{180n\mid n\in\mathbb{Z}\right\\}$ _degrees_
+    ///
+    /// # Range
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Warning
+    ///
+    /// The value of the cotangent function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let x = 45.0_f64;
+    /// let abs_difference = (x.cotd() - 1.0).abs();
+    ///
+    /// assert!(abs_difference < 1e-15);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/Cotangent.html](https://mathworld.wolfram.com/Cotangent.html)
+    fn cotd(&self) -> Self;
+
+    /// Computes the inverse sine of this value, returning the result in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Inverse sine of this value \[deg\].
+    ///
+    /// # Domain
+    ///
+    /// $[-1,1]$
+    ///
+    /// # Range
+    ///
+    /// $\left[-90,90\right]$ _degrees_
+    ///
+    /// # Warning
+    ///
+    /// The value of the inverse sine function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let f = 90.0_f64;
+    ///
+    /// // asind(sind(90))
+    /// let abs_difference = (f.sind().asind() - f).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseSine.html](https://mathworld.wolfram.com/InverseSine.html)
+    fn asind(&self) -> Self;
+
+    /// Computes the inverse cosine of this value, returning the result in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Inverse cosine of this value \[deg\].
+    ///
+    /// # Domain
+    ///
+    /// $[-1,1]$
+    ///
+    /// # Range
+    ///
+    /// $[0,180]$ _degrees_
+    ///
+    /// # Warning
+    ///
+    /// The value of the inverse cosine function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let f = 45.0_f64;
+    ///
+    /// // acosd(cosd(45))
+    /// let abs_difference = (f.cosd().acosd() - f).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseCosine.html](https://mathworld.wolfram.com/InverseCosine.html)
+    fn acosd(&self) -> Self;
+
+    /// Computes the inverse tangent of this value, returning the result in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Inverse tangent of this value \[deg\].
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$ _degrees_
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let f = 30.0_f64;
+    ///
+    /// // atand(tand(30))
+    /// let abs_difference = (f.tand().atand() - f).abs();
+    ///
+    /// assert!(abs_difference < 1e-14);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseTangent.html](https://mathworld.wolfram.com/InverseTangent.html)
+    fn atand(&self) -> Self;
+
+    /// Computes the inverse cosecant of this value, returning the result in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Inverse cosecant of this value \[deg\].
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,-1]\cup[1,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $\left[-90,0\right)\cup\left(0,90\right]$ _degrees_
+    ///
+    /// # Warning
+    ///
+    /// The value of the inverse cosecant function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let f = 90.0_f64;
+    ///
+    /// // acscd(cscd(90))
+    /// let abs_difference = (f.cscd().acscd() - f).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseCosecant.html](https://mathworld.wolfram.com/InverseCosecant.html)
+    fn acscd(&self) -> Self;
+
+    /// Computes the inverse secant of this value, returning the result in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Inverse secant of this value \[deg\].
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,-1]\cup[1,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $\left[0,90\right)\cup\left(90,180\right]$ _degrees_
+    ///
+    /// # Warning
+    ///
+    /// The value of the inverse secant function at points outside its domain is `NaN`.
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let f = 45.0_f64;
+    ///
+    /// // asecd(secd(45))
+    /// let abs_difference = (f.secd().asecd() - f).abs();
+    ///
+    /// assert!(abs_difference < 1e-16);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseSecant.html](https://mathworld.wolfram.com/InverseSecant.html)
+    fn asecd(&self) -> Self;
+
+    /// Computes the inverse cotangent of this value, returning the result in degrees.
+    ///
+    /// # Returns
+    ///
+    /// Inverse cotangent of this value \[deg\].
+    ///
+    /// # Domain
+    ///
+    /// $(-\infty,\infty)$
+    ///
+    /// # Range
+    ///
+    /// $\left(-90,0\right)\cup\left(0,90\right]$ _degrees_
+    ///
+    /// # Examples
+    ///
+    /// ```
+    /// use trig::Trig;
+    ///
+    /// let f = 30.0_f64;
+    ///
+    /// // acotd(cotd(30))
+    /// let abs_difference = (f.cotd().acotd() - f).abs();
+    ///
+    /// assert!(abs_difference < 1e-14);
+    /// ```
+    ///
+    /// # References
+    ///
+    /// * [https://mathworld.wolfram.com/InverseCotangent.html](https://mathworld.wolfram.com/InverseCotangent.html)
+    fn acotd(&self) -> Self;
 }
