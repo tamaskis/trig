@@ -4,45 +4,30 @@
 //! [crates-io]: https://img.shields.io/badge/crates.io-fc8d62?style=for-the-badge&labelColor=555555&logo=rust
 //! [docs-rs]: https://img.shields.io/badge/docs.rs-66c2a5?style=for-the-badge&labelColor=555555&logo=docs.rs
 //!
-//! Complete set of trigonometric functions in Rust.
+//! Complete set of trigonometric and hyperbolic functions in Rust.
 //!
 //! # Summary
 //!
-//! This crate defines the [`Trig`] trait defining the complete set of trigonometric functions. Rust already provides the following trigonometric functions for [`f32`]s and [`f64`]s:
+//! This crate defines the [`Trig`] trait defining the complete set of trigonometric and hyperbolic
+//! functions. Rust already provides the following functions for [`f32`]s and [`f64`]s:
 //!
-//! * `sin`
-//! * `cos`
-//! * `tan`
-//! * `asin`
-//! * `acos`
-//! * `atan`
-//! * `atan2`
+//! * trigonometric functions (radians): `sin`, `cos`, `tan`
+//! * inverse trigonometric functions (radians): `asin`, `acos`, `atan`, `atan2`
+//! * hyperbolic functions: `sinh`, `cosh`, `tanh`
+//! * inverse hyperbolic functions: `asinh`, `acosh`, `atanh`
 //!
-//! The [`Trig`] trait also includes these functions, but also defines the following additional trigonometric functions:
+//! In addition to these functions, the [`Trig`] trait also defines the reciprocal functions and
+//! their inverses for both the trigonometric and hyperbolic functions. The complete set of methods
+//! defined on the [`Trig`] trait is:
 //!
-//! * `csc`
-//! * `sec`
-//! * `cot`
-//! * `acsc`
-//! * `asec`
-//! * `acot`
-//! * `sind`
-//! * `cosd`
-//! * `tand`
-//! * `cscd`
-//! * `secd`
-//! * `cotd`
-//! * `asind`
-//! * `acosd`
-//! * `atand`
-//! * `acscd`
-//! * `asecd`
-//! * `acotd`
-//!
-//! Additionally, the following unit conversion methods are also defined:
-//!
-//! * `deg2rad`
-//! * `rad2deg`
+//! * trigonometric functions (radians): `sin`, `cos`, `tan`, `csc`, `sec`, `cot`
+//! * inverse trigonometric functions (radians): `asin`, `acos`, `atan`, `acsc`, `asec`, `acot`
+//! * trigonometric functions (degrees): `sind`, `cosd`, `tand`, `cscd`, `secd`, `cotd`
+//! * inverse trigonometric functions (degrees): `asind`, `acosd`, `atand`, `atan2d`, `acscd`,
+//!   `asecd`, `acotd`
+//! * hyperbolic functions: `sinh`, `cosh`, `tanh`, `csch`, `sech`, `coth`
+//! * inverse hyperbolic functions: `asinh`, `acosh`, `atanh`, `acsch`, `asech`, `acoth`
+//! * unit conversions: `deg2rad`, `rad2deg`
 //!
 //! # Implementations
 //!

@@ -79,12 +79,49 @@ impl Trig for f64 {
     fn acotd(&self) -> f64 {
         self.acot().rad2deg()
     }
+    fn sinh(&self) -> f64 {
+        f64::sinh(*self)
+    }
+    fn cosh(&self) -> f64 {
+        f64::cosh(*self)
+    }
+    fn tanh(&self) -> f64 {
+        f64::tanh(*self)
+    }
+    fn csch(&self) -> f64 {
+        1.0 / self.sinh()
+    }
+    fn sech(&self) -> f64 {
+        1.0 / self.cosh()
+    }
+    fn coth(&self) -> f64 {
+        1.0 / self.tanh()
+    }
+    fn asinh(&self) -> f64 {
+        f64::asinh(*self)
+    }
+    fn acosh(&self) -> f64 {
+        f64::acosh(*self)
+    }
+    fn atanh(&self) -> f64 {
+        f64::atanh(*self)
+    }
+    fn acsch(&self) -> f64 {
+        (1.0 / self).asinh()
+    }
+    fn asech(&self) -> f64 {
+        (1.0 / self).acosh()
+    }
+    fn acoth(&self) -> f64 {
+        (1.0 / self).atanh()
+    }
 }
 
 #[cfg(test)]
 mod test {
     use super::*;
     use numtest::*;
+    use std::f64::consts::E;
 
     #[test]
     fn test_sin() {
@@ -226,5 +263,65 @@ mod test {
     #[test]
     fn test_acotd() {
         assert_equal_to_atol!(30.0_f64.cotd().acotd(), 30.0_f64, 1e-14);
+    }
+
+    #[test]
+    fn test_sinh() {
+        assert_eq!(1.0_f64.sinh(), ((E * E) - 1.0) / (2.0 * E));
+    }
+
+    #[test]
+    fn test_cosh() {
+        assert_equal_to_atol!(1.0_f64.cosh(), ((E * E) + 1.0) / (2.0 * E), 1e-15);
+    }
+
+    #[test]
+    fn test_tanh() {
+        assert_eq!(1.0_f64.tanh(), (1.0 - E.powi(-2)) / (1.0 + E.powi(-2)));
+    }
+
+    #[test]
+    fn test_csch() {
+        assert_eq!(1.0_f64.csch(), (2.0 * E) / ((E * E) - 1.0));
+    }
+
+    #[test]
+    fn test_sech() {
+        assert_eq!(1.0_f64.sech(), (2.0 * E) / ((E * E) + 1.0));
+    }
+
+    #[test]
+    fn test_coth() {
+        assert_eq!(1.0_f64.coth(), (1.0 + E.powi(-2)) / (1.0 - E.powi(-2)));
+    }
+
+    #[test]
+    fn test_asinh() {
+        assert_eq!(1.0_f64.sinh().asinh(), 1.0);
+    }
+
+    #[test]
+    fn test_acosh() {
+        assert_eq!(1.0_f64.cosh().acosh(), 1.0);
+    }
+
+    #[test]
+    fn test_atanh() {
+        assert_equal_to_atol!(1.0_f64.tanh().atanh(), 1.0, 1e-15);
+    }
+
+    #[test]
+    fn test_acsch() {
+        assert_eq!(1.0_f64.csch().acsch(), 1.0);
+    }
+
+    #[test]
+    fn test_asech() {
+        assert_equal_to_atol!(0.5_f64.sech().asech(), 0.5, 1e-15);
+    }
+
+    #[test]
+    fn test_acoth() {
+        assert_equal_to_atol!(1.5_f64.coth().acoth(), 1.5, 1e-15);
     }
 }

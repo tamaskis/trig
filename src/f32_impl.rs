@@ -79,12 +79,49 @@ impl Trig for f32 {
     fn acotd(&self) -> f32 {
         self.acot().rad2deg()
     }
+    fn sinh(&self) -> f32 {
+        f32::sinh(*self)
+    }
+    fn cosh(&self) -> f32 {
+        f32::cosh(*self)
+    }
+    fn tanh(&self) -> f32 {
+        f32::tanh(*self)
+    }
+    fn csch(&self) -> f32 {
+        1.0 / self.sinh()
+    }
+    fn sech(&self) -> f32 {
+        1.0 / self.cosh()
+    }
+    fn coth(&self) -> f32 {
+        1.0 / self.tanh()
+    }
+    fn asinh(&self) -> f32 {
+        f32::asinh(*self)
+    }
+    fn acosh(&self) -> f32 {
+        f32::acosh(*self)
+    }
+    fn atanh(&self) -> f32 {
+        f32::atanh(*self)
+    }
+    fn acsch(&self) -> f32 {
+        (1.0 / self).asinh()
+    }
+    fn asech(&self) -> f32 {
+        (1.0 / self).acosh()
+    }
+    fn acoth(&self) -> f32 {
+        (1.0 / self).atanh()
+    }
 }
 
 #[cfg(test)]
 mod test {
     use super::*;
     use numtest::*;
+    use std::f32::consts::E;
 
     #[test]
     fn test_sin() {
@@ -228,5 +265,73 @@ mod test {
     #[test]
     fn test_acotd() {
         assert_eq!(30.0_f32.cotd().acotd(), 30.0_f32);
+    }
+
+    #[test]
+    fn test_sinh() {
+        assert_eq!(1.0_f32.sinh(), ((E * E) - 1.0) / (2.0 * E));
+    }
+
+    #[test]
+    fn test_cosh() {
+        assert_equal_to_atol!(1.0_f32.cosh(), ((E * E) + 1.0) / (2.0 * E), 1e-6);
+    }
+
+    #[test]
+    fn test_tanh() {
+        assert_equal_to_atol!(
+            1.0_f32.tanh(),
+            (1.0 - E.powi(-2)) / (1.0 + E.powi(-2)),
+            1e-7
+        );
+    }
+
+    #[test]
+    fn test_csch() {
+        assert_equal_to_atol!(1.0_f32.csch(), (2.0 * E) / ((E * E) - 1.0), 1e-7);
+    }
+
+    #[test]
+    fn test_sech() {
+        assert_equal_to_atol!(1.0_f32.sech(), (2.0 * E) / ((E * E) + 1.0), 1e-7);
+    }
+
+    #[test]
+    fn test_coth() {
+        assert_equal_to_atol!(
+            1.0_f32.coth(),
+            (1.0 + E.powi(-2)) / (1.0 - E.powi(-2)),
+            1e-6
+        );
+    }
+
+    #[test]
+    fn test_asinh() {
+        assert_equal_to_atol!(1.0_f32.sinh().asinh(), 1.0, 1e-7);
+    }
+
+    #[test]
+    fn test_acosh() {
+        assert_equal_to_atol!(1.0_f32.cosh().acosh(), 1.0, 1e-7);
+    }
+
+    #[test]
+    fn test_atanh() {
+        assert_eq!(1.0_f32.tanh().atanh(), 1.0);
+    }
+
+    #[test]
+    fn test_acsch() {
+        assert_equal_to_atol!(1.0_f32.csch().acsch(), 1.0, 1e-7);
+    }
+
+    #[test]
+    fn test_asech() {
+        assert_equal_to_atol!(0.5_f32.sech().asech(), 0.5, 1e-7);
+    }
+
+    #[test]
+    fn test_acoth() {
+        assert_equal_to_atol!(1.5_f32.coth().acoth(), 1.5, 1e-6);
     }
 }
