@@ -26,8 +26,30 @@
 //! * `acsc`
 //! * `asec`
 //! * `acot`
+//! * `sind`
+//! * `cosd`
+//! * `tand`
+//! * `cscd`
+//! * `secd`
+//! * `cotd`
+//! * `asind`
+//! * `acosd`
+//! * `atand`
+//! * `acscd`
+//! * `asecd`
+//! * `acotd`
 //!
-//! This crate currently implements the [`Trig`] trait for [`f32`]s and [`f64`]s.
+//! Additionally, the following unit conversion methods are also defined:
+//!
+//! * `deg2rad`
+//! * `rad2deg`
+//!
+//! # Implementations
+//!
+//! This crate currently implements the [`Trig`] trait for the following types/structs:
+//!
+//! * [`f32`]
+//! * [`f64`]
 //!
 //! # Example
 //!
