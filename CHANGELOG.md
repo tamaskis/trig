@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+1. Updated `numtest` dev dependency from `0.1.6` to `0.2.2`.
+
 ## 0.1.3
 
 1. Added four-quadrant inverse tangent functions (in radians and degrees).
