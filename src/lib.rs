@@ -50,7 +50,7 @@
 // Linter setup.
 #![warn(missing_docs)]
 
-// Linking project modules.
+// Module declarations.
 pub(crate) mod f32_impl;
 pub(crate) mod f64_impl;
 pub(crate) mod trig_trait;

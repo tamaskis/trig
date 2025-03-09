@@ -10,17 +10,6 @@ Complete set of trigonometric and hyperbolic functions in Rust.
 
 Please see https://docs.rs/trig.
 
-## Examples
-
-```rust
-use trig::Trig;
-
-let x = std::f64::consts::FRAC_PI_2;
-let abs_difference = (x.csc() - 1.0).abs();
-
-assert!(abs_difference < 1e-16);
-```
-
 #### License
 
 <sup>
