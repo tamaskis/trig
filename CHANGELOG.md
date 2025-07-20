@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+1. Updated `rust` version to 2024.
+
 ## 0.1.4
 
 1. Updated `numtest` dev dependency from `0.1.6` to `0.2.2`.

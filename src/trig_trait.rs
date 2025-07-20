@@ -741,7 +741,7 @@ pub trait Trig {
     ///
     /// # Range
     ///
-    /// $[0,180]$ _degrees_
+    /// $\[0,180\]$ _degrees_
     ///
     /// # Warning
     ///
