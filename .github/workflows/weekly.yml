@@ -20,8 +20,8 @@ jobs:
       - name: Lock latest # Generate new lock file using latest versions of dependencies.
         run: cargo generate-lockfile
       - name: Test latest # Test using latest dependencies.
-        run: set RUST_BACKTRACE=1; cargo test --locked --all-features --verbose
+        run: RUST_BACKTRACE=1 cargo test --locked --all-features --verbose
       - name: Lock minimal  # Generate new lock file using minimum allowed versions of dependencies.
         run: cargo generate-lockfile -Z minimal-versions
       - name: Check minimal  # Check compilation using minimal dependencies.
-        run: cargo check --locked
+        run: cargo check --locked --all-features

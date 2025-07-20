@@ -26,15 +26,15 @@ jobs:
       - name: Install # Install stable toolchain.
         run: rustup update stable && rustup default stable
       - name: Test  # Test using dependencies from committed lock file.
-        run: set RUST_BACKTRACE=1; cargo test --locked --all-features --verbose
+        run: RUST_BACKTRACE=1 cargo test --locked --all-features --verbose
       - name: Lint  # Lint using Clippy.
         run: cargo clippy --no-deps --all-features
       - name: Docs  # Ensure that docs can be generated for this crate.
-        run: cargo doc --no-deps
+        run: RUSTDOCFLAGS="-D warnings" cargo doc --no-deps --all-features
       - name: Publishing dry run  # Ensure that this crate can be published.
         run: |
           # Run cargo publish --dry-run and capture output.
-          DRY_RUN_OUTPUT=$(cargo publish --dry-run 2>&1)
+          DRY_RUN_OUTPUT=$(cargo publish --dry-run --all-features 2>&1)
 
           # Print out full dry run output.
           echo "$DRY_RUN_OUTPUT"
