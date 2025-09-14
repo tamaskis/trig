@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.1
+## 0.2.1
 
 1. Updated `numtest` dev dependency from `0.3.0` to `0.3.1`.
 
