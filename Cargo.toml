@@ -1,6 +1,6 @@
 [package]
 name = "trig"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Tamas Kis"]
 edition = "2024"
 description = "Complete set of trigonometric and hyperbolic functions in Rust."
@@ -14,4 +14,4 @@ exclude = [".github/", ".vscode/", "book/", ".gitignore", "Cargo.lock"]
 rustdoc-args = [ "--html-in-header", "src/docs-header.html" ]
 
 [dev-dependencies]
-numtest = "0.3.0"
+numtest = "0.3.1"
