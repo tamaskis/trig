@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0
+
+1. Updated `numtest` dev dependency from `0.3.1` to `0.4.0`.
+
 ## 0.2.1
 
 1. Updated `numtest` dev dependency from `0.3.0` to `0.3.1`.

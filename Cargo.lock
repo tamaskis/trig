@@ -19,16 +19,16 @@ dependencies = [
 
 [[package]]
 name = "numtest"
-version = "0.3.1"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a7fc348cc4b5df0a77c01b6e83fa144bc892d5b9701fa34e0f0a0978d52beb46"
+checksum = "51c46dde0183f4b5296e58432a62ab6c80731c880ddaff2caddb36a8fc6d6009"
 dependencies = [
  "num-traits",
 ]
 
 [[package]]
 name = "trig"
-version = "0.2.1"
+version = "0.3.0"
 dependencies = [
  "numtest",
 ]
