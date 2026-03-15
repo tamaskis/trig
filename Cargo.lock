@@ -19,9 +19,9 @@ dependencies = [
 
 [[package]]
 name = "numtest"
-version = "0.4.1"
+version = "0.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "550799e1364a60597e705faad1df2ef7b5ee2b0833df67e590e82cc164c4302c"
+checksum = "28ab4261c88eada9b7b0d70917a41f81ad3c292061a4fea41816e06854ff1e15"
 dependencies = [
  "num-traits",
 ]

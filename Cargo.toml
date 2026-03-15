@@ -16,4 +16,4 @@ exclude = [".github/", ".vscode/", "book/", ".gitignore", "Cargo.lock"]
 rustdoc-args = [ "--html-in-header", "src/docs-header.html" ]
 
 [dev-dependencies]
-numtest = "0.4.1"
+numtest = "0.5.0"
