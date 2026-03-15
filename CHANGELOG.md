@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 
+
+1. Enabled stricter lints.
+1. Updated `numtest` dev dependency from `0.4.1` to `0.5.0`.
+
 ## 0.3.1
 
 1. Updated `numtest` dev dependency from `0.4.0` to `0.4.1`.

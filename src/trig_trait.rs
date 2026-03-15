@@ -28,6 +28,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Sine.html](https://mathworld.wolfram.com/Sine.html)
+    #[must_use]
     fn sin(&self) -> Self;
 
     /// Computes the cosine of this value, where this value is in radians.
@@ -58,6 +59,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Cosine.html](https://mathworld.wolfram.com/Cosine.html)
+    #[must_use]
     fn cos(&self) -> Self;
 
     /// Computes the tangent of this value, where this value is in radians.
@@ -93,6 +95,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Tangent.html](https://mathworld.wolfram.com/Tangent.html)
+    #[must_use]
     fn tan(&self) -> Self;
 
     /// Computes the cosecant of this value, where this value is in radians.
@@ -127,6 +130,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Cosecant.html](https://mathworld.wolfram.com/Cosecant.html)
+    #[must_use]
     fn csc(&self) -> Self;
 
     /// Computes the secant of this value, where this value is in radians.
@@ -161,6 +165,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Secant.html](https://mathworld.wolfram.com/Secant.html)
+    #[must_use]
     fn sec(&self) -> Self;
 
     /// Computes the cotangent of this value, where this value is in radians.
@@ -195,6 +200,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Cotangent.html](https://mathworld.wolfram.com/Cotangent.html)
+    #[must_use]
     fn cot(&self) -> Self;
 
     /// Computes the inverse sine of this value, returning the result in radians.
@@ -230,6 +236,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseSine.html](https://mathworld.wolfram.com/InverseSine.html)
+    #[must_use]
     fn asin(&self) -> Self;
 
     /// Computes the inverse cosine of this value, returning the result in radians.
@@ -265,6 +272,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseCosine.html](https://mathworld.wolfram.com/InverseCosine.html)
+    #[must_use]
     fn acos(&self) -> Self;
 
     /// Computes the inverse tangent of this value, returning the result in radians.
@@ -296,6 +304,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseTangent.html](https://mathworld.wolfram.com/InverseTangent.html)
+    #[must_use]
     fn atan(&self) -> Self;
 
     /// Computes the four-quadrant inverse tangent of `self` (`y`) and `other` (`x`), returning the
@@ -358,6 +367,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://en.wikipedia.org/wiki/Atan2](https://en.wikipedia.org/wiki/Atan2)
+    #[must_use]
     fn atan2(&self, other: &Self) -> Self;
 
     /// Computes the inverse cosecant of this value, returning the result in radians.
@@ -393,6 +403,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseCosecant.html](https://mathworld.wolfram.com/InverseCosecant.html)
+    #[must_use]
     fn acsc(&self) -> Self;
 
     /// Computes the inverse secant of this value, returning the result in radians.
@@ -428,6 +439,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseSecant.html](https://mathworld.wolfram.com/InverseSecant.html)
+    #[must_use]
     fn asec(&self) -> Self;
 
     /// Computes the inverse cotangent of this value, returning the result in radians.
@@ -459,6 +471,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseCotangent.html](https://mathworld.wolfram.com/InverseCotangent.html)
+    #[must_use]
     fn acot(&self) -> Self;
 
     /// Convert this value from degrees to radians.
@@ -477,6 +490,7 @@ pub trait Trig {
     ///
     /// assert!(abs_difference < 1e-15);
     /// ```
+    #[must_use]
     fn deg2rad(&self) -> Self;
 
     /// Convert this value from radians to degrees.
@@ -495,6 +509,7 @@ pub trait Trig {
     ///
     /// assert!(abs_difference < 1e-14);
     /// ```
+    #[must_use]
     fn rad2deg(&self) -> Self;
 
     /// Computes the sine of this value, where this value is in degrees.
@@ -525,6 +540,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Sine.html](https://mathworld.wolfram.com/Sine.html)
+    #[must_use]
     fn sind(&self) -> Self;
 
     /// Computes the cosine of this value, where this value is in degrees.
@@ -555,6 +571,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Cosine.html](https://mathworld.wolfram.com/Cosine.html)
+    #[must_use]
     fn cosd(&self) -> Self;
 
     /// Computes the tangent of this value, where this value is in degrees.
@@ -590,6 +607,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Tangent.html](https://mathworld.wolfram.com/Tangent.html)
+    #[must_use]
     fn tand(&self) -> Self;
 
     /// Computes the cosecant of this value, where this value is in degrees.
@@ -624,6 +642,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Cosecant.html](https://mathworld.wolfram.com/Cosecant.html)
+    #[must_use]
     fn cscd(&self) -> Self;
 
     /// Computes the secant of this value, where this value is in degrees.
@@ -658,6 +677,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Secant.html](https://mathworld.wolfram.com/Secant.html)
+    #[must_use]
     fn secd(&self) -> Self;
 
     /// Computes the cotangent of this value, where this value is in degrees.
@@ -692,6 +712,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/Cotangent.html](https://mathworld.wolfram.com/Cotangent.html)
+    #[must_use]
     fn cotd(&self) -> Self;
 
     /// Computes the inverse sine of this value, returning the result in degrees.
@@ -727,6 +748,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseSine.html](https://mathworld.wolfram.com/InverseSine.html)
+    #[must_use]
     fn asind(&self) -> Self;
 
     /// Computes the inverse cosine of this value, returning the result in degrees.
@@ -762,6 +784,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseCosine.html](https://mathworld.wolfram.com/InverseCosine.html)
+    #[must_use]
     fn acosd(&self) -> Self;
 
     /// Computes the inverse tangent of this value, returning the result in degrees.
@@ -793,6 +816,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseTangent.html](https://mathworld.wolfram.com/InverseTangent.html)
+    #[must_use]
     fn atand(&self) -> Self;
 
     /// Computes the four-quadrant inverse tangent of `self` (`y`) and `other` (`x`), returning the
@@ -849,6 +873,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://en.wikipedia.org/wiki/Atan2](https://en.wikipedia.org/wiki/Atan2)
+    #[must_use]
     fn atan2d(&self, other: &Self) -> Self;
 
     /// Computes the inverse cosecant of this value, returning the result in degrees.
@@ -884,6 +909,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseCosecant.html](https://mathworld.wolfram.com/InverseCosecant.html)
+    #[must_use]
     fn acscd(&self) -> Self;
 
     /// Computes the inverse secant of this value, returning the result in degrees.
@@ -919,6 +945,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseSecant.html](https://mathworld.wolfram.com/InverseSecant.html)
+    #[must_use]
     fn asecd(&self) -> Self;
 
     /// Computes the inverse cotangent of this value, returning the result in degrees.
@@ -950,6 +977,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseCotangent.html](https://mathworld.wolfram.com/InverseCotangent.html)
+    #[must_use]
     fn acotd(&self) -> Self;
 
     /// Computes the hyperbolic sine of this value.
@@ -984,6 +1012,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/HyperbolicSine.html](https://mathworld.wolfram.com/HyperbolicSine.html)
+    #[must_use]
     fn sinh(&self) -> Self;
 
     /// Computes the hyperbolic cosine of this value.
@@ -1018,6 +1047,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/HyperbolicCosine.html](https://mathworld.wolfram.com/HyperbolicCosine.html)
+    #[must_use]
     fn cosh(&self) -> Self;
 
     /// Computes the hyperbolic tangent of this value.
@@ -1052,6 +1082,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/HyperbolicTangent.html](https://mathworld.wolfram.com/HyperbolicTangent.html)
+    #[must_use]
     fn tanh(&self) -> Self;
 
     /// Computes the hyperbolic cosecant of this value.
@@ -1090,6 +1121,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/HyperbolicCosecant.html](https://mathworld.wolfram.com/HyperbolicCosecant.html)
+    #[must_use]
     fn csch(&self) -> Self;
 
     /// Computes the hyperbolic secant of this value.
@@ -1124,6 +1156,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/HyperbolicSecant.html](https://mathworld.wolfram.com/HyperbolicSecant.html)
+    #[must_use]
     fn sech(&self) -> Self;
 
     /// Computes the hyperbolic cotangent of this value.
@@ -1162,6 +1195,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/HyperbolicCotangent.html](https://mathworld.wolfram.com/HyperbolicCotangent.html)
+    #[must_use]
     fn coth(&self) -> Self;
 
     /// Computes the inverse hyperbolic sine of this value.
@@ -1194,6 +1228,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseHyperbolicSine.html](https://mathworld.wolfram.com/InverseHyperbolicSine.html)
+    #[must_use]
     fn asinh(&self) -> Self;
 
     /// Computes the inverse hyperbolic cosine of this value.
@@ -1230,6 +1265,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseHyperbolicCosine.html](https://mathworld.wolfram.com/InverseHyperbolicCosine.html)
+    #[must_use]
     fn acosh(&self) -> Self;
 
     /// Computes the inverse hyperbolic tangent of this value.
@@ -1266,6 +1302,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseHyperbolicTangent.html](https://mathworld.wolfram.com/InverseHyperbolicTangent.html)
+    #[must_use]
     fn atanh(&self) -> Self;
 
     /// Computes the inverse hyperbolic cosecant of this value.
@@ -1302,6 +1339,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseHyperbolicCosecant.html](https://mathworld.wolfram.com/InverseHyperbolicCosecant.html)
+    #[must_use]
     fn acsch(&self) -> Self;
 
     /// Computes the inverse hyperbolic secant of this value.
@@ -1338,6 +1376,7 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseHyperbolicSecant.html](https://mathworld.wolfram.com/InverseHyperbolicSecant.html)
+    #[must_use]
     fn asech(&self) -> Self;
 
     /// Computes the inverse hyperbolic cotangent of this value.
@@ -1375,5 +1414,6 @@ pub trait Trig {
     /// # References
     ///
     /// * [https://mathworld.wolfram.com/InverseHyperbolicCotangent.html](https://mathworld.wolfram.com/InverseHyperbolicCotangent.html)
+    #[must_use]
     fn acoth(&self) -> Self;
 }

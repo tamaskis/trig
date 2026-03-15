@@ -48,7 +48,8 @@
 //! ```
 
 // Linter setup.
-#![warn(missing_docs)]
+#![warn(missing_docs, warnings, clippy::all, clippy::pedantic, clippy::cargo)]
+#![allow(clippy::float_cmp, clippy::unreadable_literal)]
 
 // Module declarations.
 pub(crate) mod f32_impl;
